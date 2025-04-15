@@ -240,24 +240,41 @@ body::before {
   margin: 1em auto;
   width: 98%;
   max-width: 98%;
+  position: relative; /* Creates positioning context */
 }
 
-.gallery a img {
-  width: 200px;
-  height: 130px;
+.gallery-item {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  width: 200px; /* Added fixed width to match the image width */
+  height: 130px; /* Added fixed height to match the image height */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: top; /* Anchor images from the top */
+  object-position: top;
   border-radius: 5px;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.4s ease; /* Slower transition for smoother effect */
 }
 
-.gallery a:hover img {
-  object-position: top 25%; /* When zoomed, adjust to show top 75% of the image */
+/* Active state with absolute positioning */
+.gallery-item.active {
+  z-index: 1000; /* Higher than hover */
 }
 
-.gallery a img:hover {
+.gallery-item.active img {
+  position: absolute; /* Takes the image out of normal flow */
   transform: scale(2);
-  z-index: 10;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+  /* Ensure centered regardless of original position */
+  top: 50%;
+  left: 50%;
+  margin-left: -100px; /* Half the original width */
+  margin-top: -65px; /* Half the original height */
+  transition: all 0.45s ease-out 0.05s; /* Even smoother transition with delay */
 }
 
 .table-responsive {
@@ -534,9 +551,14 @@ footer {
     font-size: 1rem;
   }
   
-  .gallery a img {
+  .gallery-item {
     width: 150px;
     height: 100px;
+  }
+  
+  .gallery-item.active img {
+    margin-left: -75px; /* Half the mobile width */
+    margin-top: -50px; /* Half the mobile height */
   }
   
   .social-icon {
