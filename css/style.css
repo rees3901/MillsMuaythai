@@ -64,10 +64,20 @@ body {
 
 .logo-container {
   position: relative;
-  width: 210px;
+  width: 315px;
+  height: 315px; /* Make container same height as width for perfect circle */
   margin-right: 1.5em;
   float: left;
   overflow: hidden;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  transform-origin: top left;
+  border-radius: 50%; /* Make container a perfect circle */
+  background-color: transparent;
+}
+
+.logo-container:hover {
+  transform: perspective(800px) rotate3d(1, 1, 0, 8deg);
+  box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .logo-container::before {
@@ -98,7 +108,9 @@ body {
 
 .header img {
   width: 100%;
-  shape-outside: url('../iconpng.png');
+  height: 100%;
+  object-fit: cover; /* Ensure image fills the circular container */
+  shape-outside: circle(50%);
   shape-margin: 1em;
   position: relative;
   z-index: 0;
