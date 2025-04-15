@@ -155,8 +155,13 @@ body {
   width: 200px;
   height: 130px;
   object-fit: cover;
+  object-position: top; /* Anchor images from the top */
   border-radius: 5px;
   transition: transform 0.3s ease-in-out;
+}
+
+.gallery a:hover img {
+  object-position: top 25%; /* When zoomed, adjust to show top 75% of the image */
 }
 
 .gallery a img:hover {
@@ -279,6 +284,67 @@ footer {
   color: #bbb;
 }
 
+/* Social Media Icons */
+.social-container {
+  width: 98%;
+  max-width: 98%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg, #0a0a0a, #232323);
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 5px rgba(255, 215, 0, 0.5);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.7);
+}
+
+/* WhatsApp icon */
+.social-icon:nth-child(1) {
+  background: linear-gradient(145deg, #0a0a0a, #232323);
+}
+.social-icon:nth-child(1):hover {
+  color: #25D366;
+  border-color: #25D366;
+}
+
+/* Facebook icon */
+.social-icon:nth-child(2) {
+  background: linear-gradient(145deg, #0a0a0a, #232323);
+}
+.social-icon:nth-child(2):hover {
+  color: #1877F2;
+  border-color: #1877F2;
+}
+
+/* Instagram icon */
+.social-icon:nth-child(3) {
+  background: linear-gradient(145deg, #0a0a0a, #232323);
+}
+.social-icon:nth-child(3):hover {
+  color: #E1306C;
+  border-color: #E1306C;
+}
+
 /* Bootstrap Overrides and Mobile Responsiveness */
 @media (max-width: 768px) {
   .header {
@@ -316,5 +382,15 @@ footer {
   .gallery a img {
     width: 150px;
     height: 100px;
+  }
+  
+  .social-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .social-icons {
+    gap: 1em;
   }
 }
