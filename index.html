@@ -52,7 +52,7 @@
     .header {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex-start;
       padding: 2em;
       background: transparent; /* Made transparent to blend with main background */
       width: 90%;
@@ -61,6 +61,13 @@
     .header img {
       width: 210px;
       margin-right: 1.5em;
+      float: left;
+      shape-outside: url('iconpng.png');
+      shape-margin: 1em;
+    }
+    .header-text {
+      flex: 1;
+      min-width: 300px;
     }
     .header-text h1 {
       font-family: 'Anton', sans-serif;
@@ -186,7 +193,7 @@
     <img src="iconpng.png" alt="MMT Logo">
     <div class="header-text">
       <h1>MMT Combat Sports School</h1>
-      <p>Join our welcoming Muay Thai classes for ages 12 and up, suitable for all experience levels. Train under Che Mills, former UFC welterweight and Cage Rage British Welterweight Champion, to master authentic techniques in a supportive team environment. Explore the traditional "Art of Eight Limbs" through expert instruction on punches, kicks, elbows, and knee strikes, complemented by essential clinch work and defensive techniques. Our sessions incorporate technical drills, partner pad work, light controlled sparring, and foundational grappling to build a complete fighter's skillset. Whether seeking fitness, self-defense, or competitive training, you'll develop strength, flexibility, coordination and mental focus in our disciplined yet friendly atmosphere.</p>
+      <p>Join our welcoming Muay Thai classes for ages 12 and up, suitable for all experience levels. Our classes are open to everyone aged 12 and up, from complete beginners to seasoned martial artists, offering a positive and empowering environment where you can build confidence, improve fitness, and sharpen your combat skills. Train under the guidance of Che Mills, former UFC welterweight and Cage Rage British Welterweight Champion, whose extensive professional experience ensures that every session delivers authentic Muay Thai instruction grounded in discipline, technique, and mutual respect. You'll be training as part of a close-knit and supportive team, where each member is encouraged to reach</p>
     </div>
   </div>
 
