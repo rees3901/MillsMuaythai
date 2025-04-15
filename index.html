@@ -4,55 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MMT Combat Sports School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Antonio&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Antonio', sans-serif;
       margin: 0;
-      background-color: #111;
+      background: linear-gradient(to bottom, #000000, #FFC700C9);
       color: #fff;
-      text-align: center;
     }
-    header {
-      background-color: #222;
-      padding: 1em;
+    .banner {
+      width: 100%;
+      height: 300px;
+      background: url('image03.jpg') center/cover no-repeat;
     }
-    header img {
-      max-width: 200px;
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 2em;
+      background: #222;
     }
-    h1 {
-      margin-top: 0.5em;
+    .header img {
+      width: 120px;
+      margin-right: 1.5em;
+    }
+    .header-text h1 {
+      font-family: 'Anton', sans-serif;
       font-size: 2em;
+      margin: 0 0 0.5em 0;
       color: gold;
     }
-    .slider {
-      position: relative;
-      width: 90%;
-      max-width: 800px;
-      margin: 2em auto;
-      overflow: hidden;
-      border-radius: 10px;
+    .header-text p {
+      margin: 0;
+      max-width: 600px;
     }
-    .slides {
+    .gallery {
       display: flex;
-      width: 800%;
-      animation: slide 24s infinite;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 2em;
     }
-    .slides img {
-      width: 100%;
+    .gallery a img {
+      width: 200px;
+      height: 130px;
       object-fit: cover;
+      border-radius: 5px;
+      transition: transform 0.2s ease-in-out;
     }
-    @keyframes slide {
-      0% { transform: translateX(0%); }
-      12.5% { transform: translateX(-100%); }
-      25% { transform: translateX(-200%); }
-      37.5% { transform: translateX(-300%); }
-      50% { transform: translateX(-400%); }
-      62.5% { transform: translateX(-500%); }
-      75% { transform: translateX(-600%); }
-      87.5% { transform: translateX(-700%); }
-      100% { transform: translateX(0%); }
+    .gallery a img:hover {
+      transform: scale(1.05);
+    }
+    .schedule {
+      margin: 2em auto;
+      max-width: 600px;
+      border-collapse: collapse;
+    }
+    .schedule th, .schedule td {
+      padding: 0.8em;
+      border: 1px solid #444;
+    }
+    .schedule th {
+      background: #333;
+      color: gold;
+    }
+    .schedule td {
+      background: #222;
+    }
+    .info {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+    }
+    .info h2 {
+      color: gold;
+      font-family: 'Anton', sans-serif;
+    }
+    .info a {
+      color: lightblue;
     }
     footer {
+      text-align: center;
       margin: 2em;
       font-size: 0.9em;
       color: #bbb;
@@ -60,25 +91,43 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="image01.jpg" alt="MMT Logo">
-    <h1>MMT Combat Sports School</h1>
-  </header> 
+  <div class="banner"></div>
 
-  <div class="slider">
-    <div class="slides">
-      <img src="29b50d51.jpg" alt="Kickboxing 1">
-      <img src="55f08205.jpg" alt="Victory Pose">
-      <img src="a8e329d4.jpg" alt="Training Session">
-      <img src="c43e3852.jpg" alt="Knee Strike">
-      <img src="c705f711.jpg" alt="Pad Work">
-      <img src="cb2dbdda.jpg" alt="With Kids">
-      <img src="FVEnjzTH18My1Parc4aag2.jpg" alt="Group Shot">
+  <div class="header">
+    <img src="image01.jpg" alt="MMT Logo">
+    <div class="header-text">
+      <h1>MMT Combat Sports School</h1>
+      <p>Join our welcoming Muay Thai classes for ages 12 and up, suitable for all experience levels. Train under Che Mills, former UFC welterweight and Cage Rage British Welterweight Champion, to master authentic techniques in a supportive team environment.</p>
     </div>
   </div>
 
+  <div class="gallery">
+    <a href="29b50d51.jpg"><img src="29b50d51.jpg" alt="Gallery 1"></a>
+    <a href="55f08205.jpg"><img src="55f08205.jpg" alt="Gallery 2"></a>
+    <a href="a8e329d4.jpg"><img src="a8e329d4.jpg" alt="Gallery 3"></a>
+    <a href="c43e3852.jpg"><img src="c43e3852.jpg" alt="Gallery 4"></a>
+    <a href="c705f711.jpg"><img src="c705f711.jpg" alt="Gallery 5"></a>
+    <a href="cb2dbdda.jpg"><img src="cb2dbdda.jpg" alt="Gallery 6"></a>
+    <a href="FVEnjzTH18My1Parc4aag2.jpg"><img src="FVEnjzTH18My1Parc4aag2.jpg" alt="Gallery 7"></a>
+  </div>
+
+  <table class="schedule">
+    <tr><th>Day</th><th>Time</th><th>Activity</th></tr>
+    <tr><td>Monday</td><td>18:30–20:00</td><td>Technique, Practice, Pad work</td></tr>
+    <tr><td>Wednesday</td><td>18:30–20:00</td><td>Drills, Grappling</td></tr>
+    <tr><td>Sunday</td><td>12:00–14:00</td><td>Advanced Sparring</td></tr>
+  </table>
+
+  <div class="info">
+    <h2>About the Gym</h2>
+    <p>MMT Combat Sports School is committed to providing a safe, respectful, and inclusive environment. We are proudly a <strong>drug-free zone</strong> and promote positive values such as discipline, respect, and perseverance. All members are expected to maintain mutual respect and appropriate conduct at all times.</p>
+
+    <h2>About Che Mills</h2>
+    <p>Head Coach <strong>Che Mills</strong> is a former professional mixed martial artist and British Welterweight Champion. He competed in the UFC and Cage Rage, known for his striking expertise and commitment to the sport. Learn more about him on <a href="https://en.wikipedia.org/wiki/Che_Mills" target="_blank">Wikipedia</a> or his <a href="https://www.ufc.com/athlete/che-mills" target="_blank">UFC profile</a>.</p>
+  </div>
+
   <footer>
-    <p>Gloucester's leading Muay Thai training gym. All levels welcome. Contact us for more details.</p>
+    <p>MMT Combat Sports School – Gloucester | All rights reserved.</p>
   </footer>
 </body>
 </html>
