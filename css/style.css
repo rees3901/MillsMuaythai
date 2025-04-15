@@ -65,12 +65,67 @@ body::before {
                #121212 100%);
   transition: transform 1.2s ease-in-out, filter 1.2s ease-in-out;
   overflow: hidden;
-  background-position: top; /* Position to always show the top of the image */
+  background-position: top center; /* Ensure top of image is visible and centered */
+  /* Add bottom mask to fade banner into background - increased by 15% */
+  -webkit-mask-image: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 1) 70%, /* Changed from 85% to 70% (increased fade area by 15%) */
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 1) 70%, /* Changed from 85% to 70% (increased fade area by 15%) */
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Adding horizontal vignette overlay to the banner */
+.banner::before,
+.banner::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top vignette */
+.banner::before {
+  top: 0;
+  height: 50%; /* Increased from 40% by another 20% */
+  background: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 0.95) 0%, /* Increased darkness from 0.9 */
+    rgba(0, 0, 0, 0.8) 30%, /* Increased darkness from 0.7 */
+    rgba(0, 0, 0, 0.5) 60%, /* Increased darkness from 0.4 */
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Bottom vignette */
+.banner::after {
+  bottom: 0;
+  height: 60%; /* Increased from 40% by more than 20% to enhance bottom fade */
+  background: linear-gradient(to top, 
+    rgba(0, 0, 0, 0.95) 0%, /* Increased darkness from 0.9 */
+    rgba(0, 0, 0, 0.8) 30%, /* Increased darkness from 0.7 */
+    rgba(0, 0, 0, 0.5) 60%, /* Increased darkness from 0.4 */
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .banner:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
+  background-position: top center; /* Keep the top visible during transition */
+  background-size: cover; /* Ensure image covers the area */
+  height: 65vh; /* Significantly taller on hover to show the whole picture */
+  min-height: 400px; /* Ensure minimum height for smaller screens */
+  max-height: none; /* Remove max height restriction on hover */
+  transition: all 1.2s ease-in-out;
+  /* Temporarily remove the bottom mask on hover to show full image */
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 .header {
