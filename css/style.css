@@ -3,27 +3,48 @@
 body {
   font-family: 'Antonio', sans-serif;
   margin: 0;
-  background: linear-gradient(135deg, 
-    #000000 0%, 
-    #0a0a0a 10%, 
-    #121212 15%, 
-    #151515 25%, 
-    #181818 35%, 
-    #202020 45%, 
-    #232323 50%, 
-    #2a2a2a 55%, 
-    #9a7b00 70%, 
-    #c89b00 75%, 
-    #9a7b00 80%, 
-    #181818 90%, 
-    #121212 100%);
+  background-color: #0a0a0a; /* Base background color */
+  background-image: 
+    linear-gradient(135deg, 
+      #000000 0%, 
+      #0a0a0a 10%, 
+      #121212 15%, 
+      #151515 25%, 
+      #181818 35%, 
+      #202020 45%, 
+      #232323 50%, 
+      #2a2a2a 55%, 
+      #9a7b00 70%, 
+      #c89b00 75%, 
+      #9a7b00 80%, 
+      #181818 90%, 
+      #121212 100%);
   color: #fff;
+  position: relative;
+}
+
+/* Add hexagon pattern overlay based on HeroPatterns style */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.2;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='74' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23c89b00' fill-opacity='0.15'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 42px 74px; /* 25% larger than previous 34px × 59px */
+  pointer-events: none;
 }
 
 .banner {
-  width: 100vw;
-  height: 500px;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
+  height: 50vh; /* Use viewport height to make it responsive */
+  min-height: 300px; /* Minimum height to ensure visibility on smaller screens */
+  max-height: 600px; /* Maximum height to keep proportions reasonable on large screens */
+  margin-left: 0;
   position: relative;
   left: 0;
   right: 0;
@@ -43,7 +64,8 @@ body {
                #181818 90%, 
                #121212 100%);
   transition: transform 1.2s ease-in-out, filter 1.2s ease-in-out;
-  overflow-x: hidden;
+  overflow: hidden;
+  background-position: top; /* Position to always show the top of the image */
 }
 
 .banner:hover {
@@ -414,6 +436,10 @@ footer {
 
 /* Bootstrap Overrides and Mobile Responsiveness */
 @media (max-width: 768px) {
+  .banner {
+    height: 40vh; /* Slightly smaller on tablets */
+  }
+  
   .header {
     flex-direction: column;
     text-align: center;
@@ -438,6 +464,11 @@ footer {
 
 /* Additional mobile styles */
 @media (max-width: 576px) {
+  .banner {
+    height: 30vh; /* Even smaller on phones */
+    min-height: 200px;
+  }
+  
   .header-text h1 {
     font-size: 2rem;
   }
