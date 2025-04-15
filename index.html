@@ -9,7 +9,7 @@
     body {
       font-family: 'Antonio', sans-serif;
       margin: 0;
-      background: linear-gradient(to bottom, #000000, #FFC700C9);
+      background: linear-gradient(to bottom, #000000, #c89b00, #000000, #c89b00);
       color: #fff;
     }
     .banner {
@@ -19,6 +19,7 @@
     }
     .header {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       padding: 2em;
       background: #222;
@@ -49,26 +50,28 @@
       height: 130px;
       object-fit: cover;
       border-radius: 5px;
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.3s ease-in-out;
     }
     .gallery a img:hover {
-      transform: scale(1.05);
+      transform: scale(2);
+      z-index: 10;
     }
     .schedule {
       margin: 2em auto;
-      max-width: 600px;
+      width: 90%;
       border-collapse: collapse;
     }
     .schedule th, .schedule td {
-      padding: 0.8em;
-      border: 1px solid #444;
+      padding: 1em;
+      border-bottom: 1px solid #444;
+      border-right: none;
+      border-left: none;
+      background: none;
     }
     .schedule th {
-      background: #333;
+      background: none;
       color: gold;
-    }
-    .schedule td {
-      background: #222;
+      border-bottom: 2px solid gold;
     }
     .info {
       padding: 2em;
@@ -82,11 +85,30 @@
     .info a {
       color: lightblue;
     }
+    .map {
+      padding: 2em;
+      text-align: center;
+    }
+    .map iframe {
+      width: 90%;
+      height: 300px;
+      border: 0;
+      border-radius: 8px;
+    }
     footer {
       text-align: center;
       margin: 2em;
       font-size: 0.9em;
       color: #bbb;
+    }
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header img {
+        margin-bottom: 1em;
+      }
     }
   </style>
 </head>
@@ -94,7 +116,7 @@
   <div class="banner"></div>
 
   <div class="header">
-    <img src="image01.jpg" alt="MMT Logo">
+    <img src="iconpng.png" alt="MMT Logo">
     <div class="header-text">
       <h1>MMT Combat Sports School</h1>
       <p>Join our welcoming Muay Thai classes for ages 12 and up, suitable for all experience levels. Train under Che Mills, former UFC welterweight and Cage Rage British Welterweight Champion, to master authentic techniques in a supportive team environment.</p>
@@ -124,6 +146,11 @@
 
     <h2>About Che Mills</h2>
     <p>Head Coach <strong>Che Mills</strong> is a former professional mixed martial artist and British Welterweight Champion. He competed in the UFC and Cage Rage, known for his striking expertise and commitment to the sport. Learn more about him on <a href="https://en.wikipedia.org/wiki/Che_Mills" target="_blank">Wikipedia</a> or his <a href="https://www.ufc.com/athlete/che-mills" target="_blank">UFC profile</a>.</p>
+  </div>
+
+  <div class="map">
+    <h2>Find Us</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2473.833143789925!2d-2.244296323938589!3d51.87042487189251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4871033c6b355a21%3A0xe8f0d3820f2590b7!2sRedwell%20Centre!5e0!3m2!1sen!2suk!4v1713174721893!5m2!1sen!2suk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
   <footer>
