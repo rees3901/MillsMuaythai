@@ -9,14 +9,14 @@
     body {
       font-family: 'Antonio', sans-serif;
       margin: 0;
-      background: linear-gradient(to bottom, #000000, #c89b00, #000000, #c89b00);
+      background: linear-gradient(135deg, #000000, #c89b00, #000000, #c89b00);
       color: #fff;
     }
     .banner {
       width: 100%;
       height: 500px;
-      background: url('image03.jpg') center/contain no-repeat;
-      background-color: #000;
+      background: url('image03.jpg') center/contain no-repeat, 
+                 linear-gradient(135deg, #000000, #c89b00, #000000, #c89b00);
       transition: transform 1.2s ease-in-out, filter 1.2s ease-in-out;
     }
     .banner:hover {
@@ -28,7 +28,7 @@
       flex-wrap: wrap;
       align-items: center;
       padding: 2em;
-      background: linear-gradient(to right, #000000, #c89b00, #000000);
+      background: linear-gradient(135deg, #000000, #c89b00, #000000);
       width: 90%;
       margin: auto;
     }
@@ -142,4 +142,48 @@
 <body>
   <div class="banner"></div>
 
-  <!-- rest of the page remains unchanged -->
+  <div class="header">
+    <img src="iconpng.png" alt="MMT Logo">
+    <div class="header-text">
+      <h1>MMT Combat Sports School</h1>
+      <p>Join our welcoming Muay Thai classes for ages 12 and up, suitable for all experience levels. Train under Che Mills, former UFC welterweight and Cage Rage British Welterweight Champion, to master authentic techniques in a supportive team environment.</p>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <a href="29b50d51.jpg"><img src="29b50d51.jpg" alt="Gallery 1"></a>
+    <a href="55f08205.jpg"><img src="55f08205.jpg" alt="Gallery 2"></a>
+    <a href="a8e329d4.jpg"><img src="a8e329d4.jpg" alt="Gallery 3"></a>
+    <a href="c43e3852.jpg"><img src="c43e3852.jpg" alt="Gallery 4"></a>
+    <a href="c705f711.jpg"><img src="c705f711.jpg" alt="Gallery 5"></a>
+    <a href="cb2dbdda.jpg"><img src="cb2dbdda.jpg" alt="Gallery 6"></a>
+    <a href="FVEnjzTH18My1Parc4aag2.jpg"><img src="FVEnjzTH18My1Parc4aag2.jpg" alt="Gallery 7"></a>
+  </div>
+
+  <table class="schedule">
+    <tr><th>Day</th><th>Time</th><th>Activity</th></tr>
+    <tr><td>Monday</td><td>18:30–20:00</td><td>Technique, Practice, Pad work</td></tr>
+    <tr><td>Wednesday</td><td>18:30–20:00</td><td>Drills, Grappling</td></tr>
+    <tr><td>Sunday</td><td>12:00–14:00</td><td>Advanced Sparring</td></tr>
+  </table>
+
+  <div class="info">
+    <h2>About the Gym</h2>
+    <p>MMT Combat Sports School is committed to providing a safe, respectful, and inclusive environment. We are proudly a <strong>drug-free zone</strong> and promote positive values such as discipline, respect, and perseverance. Whether you're a complete beginner or a competitive fighter, our sessions are designed to develop real skills, build confidence, and foster lifelong fitness in a community-focused setting.</p>
+
+    <h2>About Che Mills</h2>
+    <p>Head Coach <strong>Che Mills</strong> is a former professional mixed martial artist and British Welterweight Champion. Known for his explosive striking and technical ability, Che competed in top-level organisations including the UFC and Cage Rage. With years of experience at the highest levels of competition, he brings elite-level instruction and mentoring to every session. Learn more about him on <a href="https://en.wikipedia.org/wiki/Che_Mills" target="_blank">Wikipedia</a> or his <a href="https://www.ufc.com/athlete/che-mills" target="_blank">UFC profile</a>.</p>
+  </div>
+
+  <div class="map">
+    <h2>Find Us</h2>
+    <div class="map-box">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2465.2213129949744!2d-2.218972223931133!3d51.833799179692154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487105f7ba86fdef%3A0x2cb87ff70e7b66f2!2sThe%20Redwell%20Centre!5e0!3m2!1sen!2suk!4v1713195302345!5m2!1sen!2suk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>MMT Combat Sports School – Gloucester | All rights reserved.</p>
+  </footer>
+</body>
+</html>
