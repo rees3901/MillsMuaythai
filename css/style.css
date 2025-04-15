@@ -169,27 +169,70 @@ body {
   z-index: 10;
 }
 
-.schedule {
-  margin: 1em auto;
+.table-responsive {
+  margin: 2.5em auto;
   width: 98%;
   max-width: 98%;
-  border-collapse: collapse;
+}
+
+.schedule {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   color: #FCE405;
+  background-color: rgba(0, 0, 0, 0.45); /* 15% more transparent */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3);
 }
 
 .schedule th, .schedule td {
-  padding: 1em;
-  border-bottom: 1px solid #444;
-  border-right: none;
-  border-left: none;
-  background: none;
+  padding: 1.2em 1em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .schedule th {
-  background: none;
-  color: #FCE405;
-  border-bottom: 2px solid #FCE405;
+  background: rgba(0, 0, 0, 0.4);
+  color: gold;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  border-bottom: 2px solid gold;
+  text-transform: uppercase;
+}
+
+.schedule tr:hover td {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.schedule td:first-child {
+  font-weight: 600;
+}
+
+/* Schedule title */
+.schedule-title {
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  color: gold;
+  margin-bottom: 0.5em;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 3px rgba(0,0,0,0.7);
+}
+
+.schedule-note {
+  text-align: right;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(255, 215, 0, 0.8);
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
 }
 
 .info {
@@ -251,7 +294,8 @@ body {
   background: rgba(0, 0, 0, 0.4);
   pointer-events: none;
   z-index: 1;
-  transition: background 0.7s ease;
+  transition: background 4s ease;
+  transition-delay: 1s;
 }
 
 .map iframe {
@@ -260,7 +304,8 @@ body {
   border: none;
   display: block;
   filter: contrast(1.1) brightness(0.8) saturate(0.9);
-  transition: filter 0.4s ease;
+  transition: filter 4s ease;
+  transition-delay: 1s;
 }
 
 .map-box:hover .map-overlay {
@@ -343,6 +388,16 @@ footer {
 .social-icon:nth-child(3):hover {
   color: #E1306C;
   border-color: #E1306C;
+}
+
+/* Pricing Information */
+.pricing-title {
+  font-family: 'Anton', sans-serif;
+  color: gold;
+  margin: 1em auto;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 3px rgba(0,0,0,0.7);
 }
 
 /* Bootstrap Overrides and Mobile Responsiveness */
