@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMT Combat Sports School</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background-color: #222;
+      padding: 1em;
+    }
+    header img {
+      max-width: 200px;
+    }
+    h1 {
+      margin-top: 0.5em;
+      font-size: 2em;
+      color: gold;
+    }
+    .slider {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      margin: 2em auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .slides {
+      display: flex;
+      width: 800%;
+      animation: slide 24s infinite;
+    }
+    .slides img {
+      width: 100%;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      12.5% { transform: translateX(-100%); }
+      25% { transform: translateX(-200%); }
+      37.5% { transform: translateX(-300%); }
+      50% { transform: translateX(-400%); }
+      62.5% { transform: translateX(-500%); }
+      75% { transform: translateX(-600%); }
+      87.5% { transform: translateX(-700%); }
+      100% { transform: translateX(0%); }
+    }
+    footer {
+      margin: 2em;
+      font-size: 0.9em;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="image01.jpg" alt="MMT Logo">
+    <h1>MMT Combat Sports School</h1>
+  </header> 
+
+  <div class="slider">
+    <div class="slides">
+      <img src="29b50d51.jpg" alt="Kickboxing 1">
+      <img src="55f08205.jpg" alt="Victory Pose">
+      <img src="a8e329d4.jpg" alt="Training Session">
+      <img src="c43e3852.jpg" alt="Knee Strike">
+      <img src="c705f711.jpg" alt="Pad Work">
+      <img src="cb2dbdda.jpg" alt="With Kids">
+      <img src="FVEnjzTH18My1Parc4aag2.jpg" alt="Group Shot">
+    </div>
+  </div>
+
+  <footer>
+    <p>Gloucester's leading Muay Thai training gym. All levels welcome. Contact us for more details.</p>
+  </footer>
+</body>
+</html>
