@@ -113,8 +113,15 @@
     .map-box {
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 255, 255, 0.2);
       overflow: hidden;
+      transform: perspective(1000px) rotateX(2deg);
+      border: 3px solid rgba(255, 215, 0, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .map-box:hover {
+      transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.3);
     }
     .map iframe {
       width: 100%;
