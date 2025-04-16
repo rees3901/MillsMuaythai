@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MMT Combat Sports School</title>
+  <title>Mill's Muay Thai Combat Sports School</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
@@ -21,9 +21,45 @@
       padding-left: 0;
       padding-right: 0;
     }
+    
+    /* Full-page gradient overlay */
+    #gradient-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, 
+        #000000 0%, 
+        #0a0a0a 10%, 
+        #121212 15%, 
+        #151515 20%,
+        #181818 30%, 
+        #202020 40%, 
+        #232323 45%, 
+        #2a2a2a 56%,
+        rgba(156, 135, 82, 0.7) 70.5%,
+        rgba(224, 186, 96, 0.7) 75%, 
+        rgba(156, 135, 82, 0.7) 79.5%,
+        #181818 90%,
+        #121212 100%);
+      transform-origin: center center;
+      animation: diagonalBreatheEffect 6s ease-in-out infinite alternate;
+    }
+    
+    @keyframes diagonalBreatheEffect {
+      0% {
+        transform: scale(1.5) translate(9%, 18%); /* Increased by 50% from 6%, 12% to 9%, 18% */
+      }
+      100% {
+        transform: scale(1.5) translate(-9%, -18%); /* Increased by 50% from -6%, -12% to -9%, -18% */
+      }
+    }
   </style>
 </head>
 <body>
+  <div id="gradient-overlay"></div>
   <div class="banner" role="img" aria-label="MMT Combat Sports School banner image"></div>
 
   <div class="container-fluid">
@@ -32,7 +68,7 @@
         <img src="iconpng.png" alt="MMT Logo" class="img-fluid">
       </div>
       <div class="header-text">
-        <h1>MMT Combat Sports School</h1>
+        <h1>Mill's Muay Thai Combat Sports School</h1>
         <p>Train authentic Muay Thai in a supportive, professional environment. Open to everyone 12+ of all skill levels, from beginners to experienced fighters. Learn striking, clinching, and defensive techniques under the guidance of Che Mills, former UFC fighter and British Welterweight Champion. Build practical skills while improving fitness, confidence, and discipline.</p>
       </div>
     </div>

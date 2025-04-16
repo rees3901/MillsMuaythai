@@ -3,26 +3,36 @@
 body {
   font-family: 'Antonio', sans-serif;
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
   background-color: #0a0a0a; /* Base background color */
-  background-image: 
-    linear-gradient(135deg, 
-      #000000 0%, 
-      #0a0a0a 10%, 
-      #121212 15%, 
-      #151515 25%, 
-      #181818 35%, 
-      #202020 45%, 
-      #232323 50%, 
-      #2a2a2a 55%, 
-      #9c8752 70%, /* Changed from #9a7b00 */
-      #e0ba60 75%, /* Changed from #c89b00 */
-      #9c8752 80%, /* Changed from #9a7b00 */
-      #181818 90%, 
-      #121212 100%);
   color: #fff;
   position: relative;
-  background-attachment: fixed; /* This makes the background stay fixed when scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
+/* Position-based breathing animation with 30% increased movement range */
+@keyframes breatheEffect {
+  0% {
+    background-position: center 117%; /* Increased from 90% to 117% (30% more range) */
+  }
+  100% {
+    background-position: center -7%; /* Changed from 0% to -7% (30% more range) */
+  }
+}
+
+/* Removing the keyframes animation since we'll control it via JavaScript */
+/* @keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
 
 /* Add hexagon pattern overlay based on HeroPatterns style */
 body::before {
@@ -59,13 +69,13 @@ body::before {
                #181818 35%, 
                #202020 45%, 
                #232323 50%, 
-               #2a2a2a 55%, 
                #9c8752 70%, /* Changed from #9a7b00 */
                #e0ba60 75%, /* Changed from #c89b00 */
-               #9c8752 80%, /* Changed from #9a7b00 */
+               #9c8752 70%, /* Changed from #9a7b00 */
                #181818 90%, 
                #121212 100%);
-  transition: transform 1.2s ease-in-out, filter 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out, filter 1.2s ease-in-out, height 1.2s ease-in-out, 
+              -webkit-mask-image 2.5s ease-in-out, mask-image 2.5s ease-in-out;
   transition-delay: 0s; /* No delay on initial state */
   overflow: hidden;
   background-position: top center; /* Ensure top of image is visible and centered */
@@ -127,9 +137,21 @@ body::before {
   max-height: none; /* Remove max height restriction on hover */
   transition: all 1.2s ease-in-out;
   transition-delay: 1s; /* Adding 1 second delay to the hover transition */
-  /* Temporarily remove the bottom mask on hover to show full image */
-  -webkit-mask-image: none;
-  mask-image: none;
+  /* Instead of removing the mask, adjust it to show more of the image */
+  -webkit-mask-image: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.7) 90%,
+    rgba(0, 0, 0, 0.3) 95%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.7) 90%,
+    rgba(0, 0, 0, 0.3) 95%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .header {
@@ -413,8 +435,8 @@ body::before {
   background: rgba(0, 0, 0, 0.2); /* Reduced from 0.4 (50% less dark) */
   pointer-events: none;
   z-index: 1;
-  transition: background 2s ease; /* Reduced from 4s (50% shorter) */
-  transition-delay: 0.5s; /* Reduced from 1s (50% shorter) */
+  transition: background 5s ease; /* Reduced from 4s (50% shorter) */
+  transition-delay: 1s; /* Reduced from 1s (50% shorter) */
 }
 
 .map iframe {
@@ -465,7 +487,7 @@ footer {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  color: #fff;
+  color: #e0ba60; /* Changed from white to gold */
   background: linear-gradient(145deg, #0a0a0a, #232323);
   font-size: 1.8rem;
   transition: all 0.3s ease;
