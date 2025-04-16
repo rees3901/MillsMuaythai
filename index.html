@@ -73,24 +73,56 @@
       </div>
     </div>
 
-    <div class="gallery">
+    <h2 class="gallery-title"> Gallery</h2>
+    
+    <div class="gallery-container">
+      <button class="gallery-nav prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
       
-      <div class="gallery-item"><img src="55f08205.jpg" alt="Combat Training" class="img-fluid"></div>
-      <div class="gallery-item"><img src="a8e329d4.jpg" alt="Sparring Session" class="img-fluid"></div>
-      <div class="gallery-item"><img src="c705f711.jpg" alt="Training Equipment" class="img-fluid"></div>
-      <div class="gallery-item"><img src="cb2dbdda.jpg" alt="Fighter Training" class="img-fluid"></div>
-      <div class="gallery-item"><img src="1000002709.png" alt="MMT Training" class="img-fluid"></div>
-      <div class="gallery-item"><img src="1000002710.png" alt="MMT Fighters" class="img-fluid"></div>
-      <div class="gallery-item"><img src="1000002711.png" alt="Professional Training" class="img-fluid"></div>
+      <div class="gallery-filmstrip">
+        <div class="gallery-item"><img src="55f08205.jpg" alt="Combat Training" class="img-fluid"></div>
+        <div class="gallery-item"><img src="a8e329d4.jpg" alt="Sparring Session" class="img-fluid"></div>
+        <div class="gallery-item"><img src="c705f711.jpg" alt="Training Equipment" class="img-fluid"></div>
+        <div class="gallery-item"><img src="cb2dbdda.jpg" alt="Fighter Training" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000002709.png" alt="MMT Training" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000002710.png" alt="MMT Fighters" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000002711.png" alt="Professional Training" class="img-fluid"></div>
+        <!-- Adding new images -->
+        <div class="gallery-item"><img src="1000003222.jpg" alt="Training Session" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003291.jpg" alt="Muay Thai Techniques" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003320.jpg" alt="Fight Training" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003321.png" alt="Combat Sports" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003322.png" alt="Training Drills" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003323.png" alt="Fighter Stance" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003324.png" alt="Combat Techniques" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003325.png" alt="Defense Training" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003326.png" alt="Ring Training" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003327.png" alt="Striking Practice" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003328.png" alt="Skills Development" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003329.png" alt="Fight Preparation" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003332.png" alt="Technique Session" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003333.png" alt="Advanced Training" class="img-fluid"></div>
+        <div class="gallery-item"><img src="1000003334.png" alt="Professional Coaching" class="img-fluid"></div>
+        <div class="gallery-item"><img src="TeamPose.jpg" alt="Team Photo" class="img-fluid"></div>
+        <div class="gallery-item"><img src="9e5b1982-6ea7-46ff-84a3-d943d2336e3c-1_all_126.jpg" alt="Training Group" class="img-fluid"></div>
+      </div>
+      
+      <button class="gallery-nav next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    
+    <div class="gallery-controls">
+      <button class="control-btn play-pause-btn" aria-label="Play/Pause slideshow">
+        <i class="fas fa-play"></i>
+      </button>
+      <div class="gallery-indicators"></div>
     </div>
 
     <div class="table-responsive">
       <h2 class="schedule-title">Training Schedule</h2>
       <table class="schedule">
         <tr><th>Day</th><th>Time</th><th>Activity</th></tr>
-        <tr><td>Monday</td><td rowspan="3">18:30–20:00</td><td>Striking Technique, Practice, Pad work</td></tr>
-        <tr><td>Wednesday</td><td>Drills, Clinch technique</td></tr>
-        <tr><td>Friday</td><td>Technique, Practice, Pad work <br><em>(Sessions run subject to sufficient student attendance)</em></td></tr>
+        <tr><td>Monday</td><td rowspan="3">18:30–20:00</td><td>Pad work, technical drills, sparring (optional)</td></tr>
+        <tr><td>Wednesday</td><td>Clinch technique and pad work, sparring (optional)</td></tr>
+        <tr><td>Friday</td><td>Technical training and conditioning</td></tr>
       </table>
       <p class="schedule-note">Please confirm Friday sessions in advance</p>
     </div>
@@ -135,49 +167,149 @@
   <!-- Bootstrap JS and dependencies -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
-  <!-- Gallery interaction script -->
+  <!-- Gallery slideshow script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Get all gallery items
-      const galleryItems = document.querySelectorAll('.gallery-item');
-      let activeItem = null;
+      // DOM elements
+      const filmstrip = document.querySelector('.gallery-filmstrip');
+      const items = document.querySelectorAll('.gallery-filmstrip .gallery-item');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      const playPauseBtn = document.querySelector('.play-pause-btn');
+      const indicatorsContainer = document.querySelector('.gallery-indicators');
       
-      // Function to reset all items
-      function resetItems() {
-        galleryItems.forEach(item => {
-          item.classList.remove('active');
-          item.style.zIndex = 1;
+      // Variables
+      let activeIndex = 0;
+      let intervalId = null;
+      const autoplaySpeed = 3000; // ms
+      const itemWidth = 208; // width + margin (200px + 8px)
+      let isPlaying = false;
+      
+      // Initialize gallery
+      function initGallery() {
+        // Create indicators
+        items.forEach((_, index) => {
+          const indicator = document.createElement('div');
+          indicator.classList.add('indicator');
+          if (index === activeIndex) indicator.classList.add('active');
+          indicator.addEventListener('click', () => goToSlide(index));
+          indicatorsContainer.appendChild(indicator);
+        });
+        
+        // Set initial active state
+        updateActiveState();
+        
+        // Event listeners
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        playPauseBtn.addEventListener('click', togglePlay);
+        
+        // Click on gallery item to activate
+        items.forEach((item, index) => {
+          item.addEventListener('click', () => {
+            goToSlide(index);
+            stopAutoplay();
+          });
+        });
+        
+        // Make filmstrip focus/touch friendly
+        filmstrip.tabIndex = 0;
+        filmstrip.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') prevSlide();
+          if (e.key === 'ArrowRight') nextSlide();
         });
       }
       
-      // Add click event listener to each gallery item
-      galleryItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-          // Prevent event bubbling
-          e.stopPropagation();
-          
-          // If this item is already active, deactivate it
-          if (this === activeItem) {
-            resetItems();
-            activeItem = null;
-            return;
+      // Update active state
+      function updateActiveState() {
+        // Update items
+        items.forEach((item, index) => {
+          if (index === activeIndex) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
           }
-          
-          // Reset all items first
-          resetItems();
-          
-          // Activate this item
-          this.classList.add('active');
-          this.style.zIndex = 999;
-          activeItem = this;
         });
-      });
+        
+        // Update indicators
+        const indicators = document.querySelectorAll('.indicator');
+        indicators.forEach((indicator, index) => {
+          if (index === activeIndex) {
+            indicator.classList.add('active');
+          } else {
+            indicator.classList.remove('active');
+          }
+        });
+        
+        // Scroll to active item
+        scrollToActive();
+      }
       
-      // Add click event listener to document to close active item when clicking elsewhere
-      document.addEventListener('click', function() {
-        resetItems();
-        activeItem = null;
-      });
+      // Scroll to active item
+      function scrollToActive() {
+        const scrollPosition = activeIndex * itemWidth;
+        filmstrip.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }
+      
+      // Go to specific slide
+      function goToSlide(index) {
+        activeIndex = index;
+        updateActiveState();
+      }
+      
+      // Go to previous slide
+      function prevSlide() {
+        activeIndex = (activeIndex > 0) ? activeIndex - 1 : items.length - 1;
+        updateActiveState();
+        if (isPlaying) restartAutoplay();
+      }
+      
+      // Go to next slide
+      function nextSlide() {
+        activeIndex = (activeIndex < items.length - 1) ? activeIndex + 1 : 0;
+        updateActiveState();
+        if (isPlaying) restartAutoplay();
+      }
+      
+      // Start autoplay
+      function startAutoplay() {
+        if (intervalId) clearInterval(intervalId);
+        intervalId = setInterval(nextSlide, autoplaySpeed);
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        isPlaying = true;
+      }
+      
+      // Stop autoplay
+      function stopAutoplay() {
+        if (intervalId) clearInterval(intervalId);
+        intervalId = null;
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        isPlaying = false;
+      }
+      
+      // Restart autoplay timer
+      function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+      }
+      
+      // Toggle play/pause
+      function togglePlay() {
+        if (isPlaying) {
+          stopAutoplay();
+        } else {
+          startAutoplay();
+        }
+      }
+      
+      // Initialize gallery
+      initGallery();
+      
+      // Make gallery responsive
+      window.addEventListener('resize', scrollToActive);
     });
   </script>
 </body>
