@@ -66,6 +66,7 @@ body::before {
                #181818 90%, 
                #121212 100%);
   transition: transform 1.2s ease-in-out, filter 1.2s ease-in-out;
+  transition-delay: 0s; /* No delay on initial state */
   overflow: hidden;
   background-position: top center; /* Ensure top of image is visible and centered */
   /* Add bottom mask to fade banner into background - increased by 15% */
@@ -125,6 +126,7 @@ body::before {
   min-height: 400px; /* Ensure minimum height for smaller screens */
   max-height: none; /* Remove max height restriction on hover */
   transition: all 1.2s ease-in-out;
+  transition-delay: 1s; /* Adding 1 second delay to the hover transition */
   /* Temporarily remove the bottom mask on hover to show full image */
   -webkit-mask-image: none;
   mask-image: none;
