@@ -366,7 +366,7 @@ body::before {
   margin: 0 50px;
   width: calc(100% - 100px);
   padding: 20px 0; /* Add padding to accommodate the zoom effect */
-  transition: all 0.5s ease; /* Smoother filmstrip transition */
+  transition: all 1.2s ease-out; /* Increased from 0.5s to 1.2s for slower, smoother transitions */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -384,7 +384,7 @@ body::before {
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  transition: transform 0.8s ease-out, box-shadow 0.8s ease-out; /* Increased from 0.4s to 0.8s */
   z-index: 1;
 }
 
@@ -393,12 +393,12 @@ body::before {
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
-  transition: all 0.4s ease-out;
+  transition: all 0.8s ease-out; /* Increased from 0.4s to 0.8s */
 }
 
 .gallery-filmstrip .gallery-item:hover {
-  transform: translateY(-5px) scale(1.35); /* Added zoom effect on hover */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), 0 8px 15px rgba(224, 186, 96, 0.6);
+  transform: translateY(-5px) scale(1.75); /* Increased from 1.35 to 1.75 (30% larger) */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 10px 20px rgba(224, 186, 96, 0.6);
   z-index: 10; /* Ensure hovered items appear above others */
 }
 
@@ -408,10 +408,10 @@ body::before {
 
 .gallery-filmstrip .gallery-item.active {
   border: 2px solid #e0ba60;
-  box-shadow: 0 0 20px rgba(224, 186, 96, 0.8);
+  box-shadow: 0 0 25px rgba(224, 186, 96, 0.8);
   z-index: 5; /* Make active items appear above regular items but below hovered */
-  transform: translateY(-5px) scale(1.35); /* Apply the same zoom effect as hover */
-  transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+  transform: translateY(-5px) scale(1.75); /* Increased from 1.35 to 1.75 (30% larger) */
+  transition: transform 1.5s ease-out, box-shadow 1.5s ease-out; /* Increased from 1s to 1.5s */
 }
 
 .gallery-filmstrip .gallery-item.active img {

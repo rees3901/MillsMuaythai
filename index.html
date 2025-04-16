@@ -181,8 +181,8 @@
       // Variables
       let activeIndex = 0;
       let intervalId = null;
-      const autoplaySpeed = 3000; // ms
-      const itemWidth = 208; // width + margin (200px + 8px)
+      const autoplaySpeed = 34000; // ms - keeping the same dwell time on each image
+      const itemWidth = 240; // width + margin (230px + 10px) - adjusted for larger images
       let isPlaying = false;
       
       // Initialize gallery
@@ -218,14 +218,19 @@
           if (e.key === 'ArrowLeft') prevSlide();
           if (e.key === 'ArrowRight') nextSlide();
         });
+        
+        // Start slideshow automatically
+        startAutoplay();
       }
       
       // Update active state
       function updateActiveState() {
-        // Update items
+        // Update items with longer delay for smoother transitions
         items.forEach((item, index) => {
           if (index === activeIndex) {
-            item.classList.add('active');
+            setTimeout(() => {
+              item.classList.add('active');
+            }, 100); // Slight delay before activating for smoother transition
           } else {
             item.classList.remove('active');
           }
@@ -241,11 +246,13 @@
           }
         });
         
-        // Scroll to active item
-        scrollToActive();
+        // Scroll to active item with a longer delay
+        setTimeout(() => {
+          scrollToActive();
+        }, 150); // Increased from 50ms to 150ms for smoother transitions
       }
       
-      // Scroll to active item
+      // Scroll to active item with smoother transition
       function scrollToActive() {
         const scrollPosition = activeIndex * itemWidth;
         filmstrip.scrollTo({
@@ -254,10 +261,21 @@
         });
       }
       
-      // Go to specific slide
+      // Go to specific slide with smoother transition
       function goToSlide(index) {
-        activeIndex = index;
-        updateActiveState();
+        if (activeIndex !== index) {
+          // Remove active class from current item
+          const currentActive = document.querySelector('.gallery-item.active');
+          if (currentActive) currentActive.classList.remove('active');
+          
+          // Set new active index
+          activeIndex = index;
+          
+          // Add longer delay before applying active class for smoother transition
+          setTimeout(() => {
+            updateActiveState();
+          }, 200); // Increased from 50ms to 200ms for smoother transitions
+        }
       }
       
       // Go to previous slide
