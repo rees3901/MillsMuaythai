@@ -14,9 +14,9 @@ body {
       #202020 45%, 
       #232323 50%, 
       #2a2a2a 55%, 
-      #9a7b00 70%, 
-      #c89b00 75%, 
-      #9a7b00 80%, 
+      #9c8752 70%, /* Changed from #9a7b00 */
+      #e0ba60 75%, /* Changed from #c89b00 */
+      #9c8752 80%, /* Changed from #9a7b00 */
       #181818 90%, 
       #121212 100%);
   color: #fff;
@@ -35,7 +35,7 @@ body::before {
   z-index: -1;
   opacity: 0.2;
   background-color: transparent;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='74' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23c89b00' fill-opacity='0.15'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='74' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23e0ba60' fill-opacity='0.15'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-size: 42px 74px; /* 25% larger than previous 34px × 59px */
   pointer-events: none;
   background-attachment: fixed; /* This makes the hexagon pattern stay fixed when scrolling */
@@ -60,9 +60,9 @@ body::before {
                #202020 45%, 
                #232323 50%, 
                #2a2a2a 55%, 
-               #9a7b00 70%, 
-               #c89b00 75%, 
-               #9a7b00 80%, 
+               #9c8752 70%, /* Changed from #9a7b00 */
+               #e0ba60 75%, /* Changed from #c89b00 */
+               #9c8752 80%, /* Changed from #9a7b00 */
                #181818 90%, 
                #121212 100%);
   transition: transform 1.2s ease-in-out, filter 1.2s ease-in-out;
@@ -158,7 +158,7 @@ body::before {
 
 .logo-container:hover {
   transform: perspective(800px) rotate3d(1, 1, 0, 8deg);
-  box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 30px rgba(224, 186, 96, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .logo-container::before {
@@ -217,7 +217,7 @@ body::before {
   font-family: 'Anton', sans-serif;
   font-size: 2.5rem;
   margin: 0 0 0.5em 0;
-  color: gold;
+  color: #e0ba60;
   letter-spacing: 0.05em;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 3px rgba(0,0,0,0.7);
 }
@@ -229,7 +229,7 @@ body::before {
   letter-spacing: 0.03em;
   font-weight: 300;
   font-size: 1.2rem;
-  background: linear-gradient(to right, #ffffff, #EBFF00);
+  background: linear-gradient(to right, #ffffff, #e0ba60);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -292,11 +292,11 @@ body::before {
   border-collapse: separate;
   border-spacing: 0;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
-  color: #FCE405;
+  color: #e0ba60;
   background-color: rgba(0, 0, 0, 0.45); /* 15% more transparent */
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(224, 186, 96, 0.3);
 }
 
 .schedule th, .schedule td {
@@ -317,17 +317,17 @@ body::before {
 
 .schedule th {
   background: rgba(0, 0, 0, 0.4);
-  color: gold;
+  color: #e0ba60;
   font-family: 'Anton', sans-serif;
   font-weight: 400;
   letter-spacing: 0.05em;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  border-bottom: 2px solid gold;
+  border-bottom: 2px solid #e0ba60;
   text-transform: uppercase;
 }
 
 .schedule tr:hover td {
-  background-color: rgba(255, 215, 0, 0.1);
+  background-color: rgba(224, 186, 96, 0.1);
 }
 
 .schedule td:first-child {
@@ -338,7 +338,7 @@ body::before {
 .schedule-title {
   text-align: center;
   font-family: 'Anton', sans-serif;
-  color: gold;
+  color: #e0ba60;
   margin-bottom: 0.5em;
   font-size: 2rem;
   letter-spacing: 0.05em;
@@ -349,7 +349,7 @@ body::before {
   text-align: right;
   font-size: 0.9rem;
   font-style: italic;
-  color: rgba(255, 215, 0, 0.8);
+  color: rgba(224, 186, 96, 0.8);
   margin-top: 0.5em;
   margin-bottom: 1.5em;
 }
@@ -363,7 +363,7 @@ body::before {
 }
 
 .info h2 {
-  color: gold;
+  color: #e0ba60;
   font-family: 'Anton', sans-serif;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 3px rgba(0,0,0,0.7);
 }
@@ -371,7 +371,7 @@ body::before {
 .info p {
   font-weight: 300;
   font-size: 1.2rem;
-  background: linear-gradient(to right, #ffffff, #EBFF00);
+  background: linear-gradient(to right, #ffffff, #e0ba60);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -391,17 +391,17 @@ body::before {
 .map-box {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(224, 186, 96, 0.6), 0 0 10px rgba(255, 255, 255, 0.2);
   overflow: hidden;
   transform: perspective(1000px) rotateX(2deg);
-  border: 3px solid rgba(255, 215, 0, 0.7);
+  border: 3px solid rgba(224, 186, 96, 0.7);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
 
 .map-box:hover {
   transform: perspective(1000px) rotateX(0deg) translateY(-5px);
-  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 40px rgba(224, 186, 96, 0.8), 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .map-overlay {
@@ -432,7 +432,7 @@ body::before {
 }
 
 .map h2 {
-  color: gold;
+  color: #e0ba60;
   font-family: 'Anton', sans-serif;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 3px rgba(0,0,0,0.7);
 }
@@ -469,13 +469,13 @@ footer {
   background: linear-gradient(145deg, #0a0a0a, #232323);
   font-size: 1.8rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 5px rgba(255, 215, 0, 0.5);
-  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 5px rgba(224, 186, 96, 0.5);
+  border: 2px solid rgba(224, 186, 96, 0.3);
 }
 
 .social-icon:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.7);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(224, 186, 96, 0.7);
 }
 
 /* WhatsApp icon */
@@ -508,7 +508,7 @@ footer {
 /* Pricing Information */
 .pricing-title {
   font-family: 'Anton', sans-serif;
-  color: gold;
+  color: #e0ba60;
   margin: 1em auto;
   font-size: 1.8rem;
   letter-spacing: 0.05em;
