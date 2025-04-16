@@ -233,6 +233,9 @@ body::before {
 .header-text {
   flex: 1;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
 }
 
 .header-text h1 {
@@ -250,10 +253,25 @@ body::before {
   max-width: 98%;
   letter-spacing: 0.03em;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem); /* Responsive font sizing */
+  line-height: 1.4;
   background: linear-gradient(to right, #ffffff, #e0ba60);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Add a media query for large desktop screens */
+@media (min-width: 1200px) {
+  .header-text p {
+    font-size: clamp(1.4rem, 1.8vw, 1.8rem); /* Larger text on big screens */
+    line-height: 1.5;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .header {
+    align-items: center; /* Better vertical alignment on large screens */
+  }
 }
 
 .gallery {
